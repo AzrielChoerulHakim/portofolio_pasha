@@ -18,3 +18,48 @@
 /* The uploaded crochet poster already contains its own headline and labels. Avoid double typesetting over them. */
 .crochet-scene figcaption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 @media(max-width:700px){.crochet-scene{height:auto;aspect-ratio:9/16}.crochet-scene img{object-fit:contain}}
+
+/* 2026-11 / Lazarus zero-noise and floral craft refinement.
+   Graphic motifs echo Pasha's actual crochet bouquet; no ornamental SVG pointers. */
+.intro-doodle{width:clamp(96px,11vw,165px);margin:6px 4% -8px auto;transform:rotate(-17deg);pointer-events:none;filter:drop-shadow(0 7px 9px rgba(90,82,57,.08))}
+.intro-doodle img,.crochet-doodle img{display:block;width:100%;height:auto}
+.crochet-doodle{width:clamp(94px,10vw,135px);height:auto;right:8px;top:-21px;transform:rotate(18deg);pointer-events:none;filter:drop-shadow(0 3px 10px #261e161a)}
+.hero-bottom-line{justify-content:flex-start}
+.ledger-row{grid-template-columns:170px minmax(0,1fr)}
+.site-footer{justify-content:center;text-align:center}
+/* Keep the source video near its native 480px width instead of enlarging it to fill a tall panel. */
+.moment-video{display:flex;align-items:center;justify-content:center;min-height:700px;padding:44px 24px;background:#9ca98a;isolation:isolate;overflow:hidden}
+.moment-video::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 22%,#e6e5c655,transparent 48%),linear-gradient(130deg,#a5b292,#7e9378);z-index:-1}
+.moment-video::after{display:none}
+.video-paper-frame{position:relative;z-index:2;display:block;width:min(78%,300px);aspect-ratio:480 / 854;background:#f6f1e6;border:9px solid #f6f1e6;border-bottom-width:28px;box-shadow:0 20px 45px #34443255,0 2px 5px #34443224;transform:rotate(-2deg);overflow:hidden}
+.moment-video video{display:block;width:100%;height:100%;aspect-ratio:480 / 854;object-fit:contain;object-position:center;filter:none;background:#465740}
+.video-bloom{position:absolute;z-index:1;width:clamp(108px,12vw,158px);height:auto;top:11%;right:-7%;transform:rotate(16deg);pointer-events:none;filter:drop-shadow(0 5px 7px #485c4230)}
+.video-toggle{bottom:calc(50% - 244px);z-index:4;padding:7px 13px 7px 7px;font-size:11px;box-shadow:0 5px 16px #1b241b42}
+@media(max-width:900px){
+ .moment-video{min-height:570px;max-height:none;padding:36px 18px}
+ .video-paper-frame{width:min(55%,285px)}
+ .video-toggle{bottom:calc(50% - 241px)}
+ .video-bloom{right:calc(50% - 200px);width:124px;top:12%}
+ .ledger-row{grid-template-columns:140px minmax(0,1fr)}
+}
+@media(max-width:700px){
+ .intro-doodle{width:116px;margin:0 0 -5px auto}
+ .moment-video{height:565px;min-height:565px;padding:38px 18px}
+ .video-paper-frame{width:min(68%,270px)}
+ .video-toggle{bottom:44px}
+ .video-bloom{width:112px;right:8%;top:8%}
+ .crochet-doodle{width:109px;right:5px;top:-15px}
+ .ledger-row{grid-template-columns:105px minmax(0,1fr)}
+}
+@media(max-width:390px){
+ .moment-video{height:530px;min-height:530px}
+ .video-paper-frame{width:min(69%,251px)}
+ .video-bloom{width:105px;right:4%;top:10%}
+ .video-toggle{bottom:39px}
+ .ledger-row{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.video-paper-frame,.video-bloom,.crochet-doodle,.intro-doodle{animation:none;transition:none}}
+
+/* Let the small field-note snapshot sit after the reading text, never on top of it. */
+@media(max-width:700px){.moment-polaroid{position:relative;right:auto;bottom:auto;margin:26px 6px 2px auto;transform:rotate(7deg)}.moment-note{min-height:0;padding-bottom:46px}}
+.intro-doodle img,.crochet-doodle img{filter:sepia(.18) saturate(1.45) contrast(1.55) brightness(.9)}

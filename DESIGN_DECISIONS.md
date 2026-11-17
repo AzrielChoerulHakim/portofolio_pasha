@@ -59,3 +59,12 @@ Known previous Lazarus materials include the original Surrealist Digital identit
 1. Pasha has not individually approved the drafted first-person conversational copy, public display of selected photos and contact channels; the website owner should confirm before broad distribution.
 2. The source's current status/date expressions require later updates as needed.
 3. Browser QA is local. No external human design review, device lab, or automated Lighthouse evaluation has been performed.
+
+## Revisi visual — 17 November 2026
+
+- **Zero-noise pass:** membuang SVG panah dan coretan dekoratif tanpa tugas; mempertahankan sketsa Savorita karena mengilustrasikan kue putri salju yang tercatat dalam CV, dan favicon sebagai identitas.
+- **Editorial copy:** menghapus nomor seri, panah hiasan, filler bilingual, dan watermark studio; menggantinya dengan label karya, pengalaman, organisasi, serta konteks yang ditopang dokumen.
+- **Video:** menjaga berkas video dan kontrol pemutaran asli; menampilkan video 480×854 dalam frame kertas berukuran maksimal 300 CSS px agar tidak diperbesar melebihi resolusi praktis.
+- **Floral motif:** menempatkan ulang ilustrasi daisy milik klien pada intro, crochet, dan frame video untuk meneruskan karakter bunga pada karya rajut, bukan menambah SVG acak.
+- **Mobile:** polaroid dipindahkan ke alur dokumen agar tidak menimpa paragraf; navigation dan kontrol video dipertahankan.
+- **QA sebelum commit:** halaman statis diuji dengan Chromium/Playwright pada lebar 320, 390, 640, 768, 832, 1024, 1440; tidak ada horizontal overflow, missing image, maupun page script errors; menu mobile, Escape, dan pemutaran video lolos. Simulasi zoom 200% tidak menghasilkan overflow. Reduced-motion ticker menjadi nonanimasi. Ini pengujian lokal, bukan klaim audit aksesibilitas penuh.
