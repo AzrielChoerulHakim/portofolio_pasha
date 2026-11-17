@@ -121,3 +121,72 @@
 .contact-flower{display:none}
 .hero-photo-wrap figcaption{left:12px;right:auto;bottom:14px;width:max-content;max-width:calc(100% - 24px);white-space:normal;overflow-wrap:normal;z-index:5;background:#203023;color:#fffaf0;box-shadow:0 2px 8px rgba(0,0,0,.23)}
 @media(max-width:700px){.hero-photo-wrap figcaption{left:11px;right:auto;max-width:calc(100% - 22px);bottom:13px;font-size:22px}}
+
+
+/* LAZARUS / Mobile composition and deliberate scroll choreography — 2026-11-17.
+   Bouquet is a square original photograph, never a tall tinted poster. */
+.project-crochet .crochet-scene{
+  display:block!important;position:relative!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  aspect-ratio:1/1!important;background:transparent!important;
+  padding:0!important;overflow:hidden!important;
+}
+.project-crochet .crochet-scene figure{
+  display:block!important;position:relative!important;
+  inset:auto!important;width:100%!important;height:auto!important;
+  aspect-ratio:1/1!important;margin:0!important;
+}
+.project-crochet .crochet-scene img{
+  display:block!important;width:100%!important;height:100%!important;
+  position:absolute!important;inset:0!important;max-height:none!important;
+  object-fit:cover!important;object-position:center!important;
+  filter:none!important;transform:none!important;
+}
+.project-crochet .crochet-scene::before,
+.project-crochet .crochet-scene::after,
+.project-crochet .crochet-scene figure::before,
+.project-crochet .crochet-scene figure::after{content:none!important;display:none!important}
+/* Do not add a separate floral PNG sticker to the original artwork. */
+.hero-daisy,.video-bloom{display:none!important}
+.project-crochet .crochet-scene img{border-radius:0}
+.project-crochet .crochet-story{min-width:0}
+.project-story,.moment-note,.hero-copy,.intro-article,.contact-content{isolation:isolate}
+.project-story h3,.project-story p,.project-meta,.moment-note h2,.moment-note p,
+.hero-copy h1,.hero-lede,.intro-article p,.contact-content h2,.contact-content p{
+  position:relative;z-index:2
+}
+.project-meta{color:#404c3d}
+.project-kicker,.eyebrow,.side-tag{color:#874833}
+.contact-section .side-tag{color:#f4d29c}
+.contact-section h2,.contact-section p{color:#fff8ea}
+.contact-section h2 em{color:#f3c8a2}
+.contact-secondary{color:#fff8ea;border-color:#fff8ea}
+.hero-photo-wrap figcaption{background:#203023;color:#fffaf0}
+/* Native scrolling: keep touch momentum, no hijacking, no forced snap. */
+html{scroll-behavior:smooth;scroll-padding-top:clamp(72px,8vw,96px)}
+body{overflow-x:clip;overscroll-behavior-x:none}
+section[id]{scroll-margin-top:clamp(72px,8vw,96px)}
+a,button{touch-action:manipulation}
+@media(prefers-reduced-motion:no-preference){
+  .scroll-enhanced .reveal-on-scroll{
+    opacity:0;transform:translate3d(0,28px,0);
+    transition:opacity .85s ease,transform 1s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--reveal-delay,0ms)
+  }
+  .scroll-enhanced .reveal-on-scroll.is-in-view{opacity:1;transform:translate3d(0,0,0)}
+  .scroll-enhanced .reveal-on-scroll:focus-within{opacity:1;transform:none}
+  .scroll-enhanced .album-card{transition:translate .8s cubic-bezier(.22,1,.36,1),opacity .8s ease}
+}
+@media(max-width:700px){
+ .project-crochet .crochet-scene{aspect-ratio:1/1!important}
+ .project-crochet .crochet-scene figure{aspect-ratio:1/1!important}
+ .project-crochet{gap:25px}
+ .hero-daisy,.video-bloom{display:none!important}
+ .moment-video{padding:28px 16px}
+ .moment-note h2,.journey-heading h2,.work-heading-grid h2{overflow-wrap:normal;hyphens:none}
+ .scroll-enhanced .reveal-on-scroll{transition-duration:.7s}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .scroll-enhanced .reveal-on-scroll{opacity:1!important;transform:none!important}
+}
