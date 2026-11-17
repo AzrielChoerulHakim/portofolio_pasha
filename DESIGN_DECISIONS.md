@@ -68,3 +68,14 @@ Known previous Lazarus materials include the original Surrealist Digital identit
 - **Floral motif:** menempatkan ulang ilustrasi daisy milik klien pada intro, crochet, dan frame video untuk meneruskan karakter bunga pada karya rajut, bukan menambah SVG acak.
 - **Mobile:** polaroid dipindahkan ke alur dokumen agar tidak menimpa paragraf; navigation dan kontrol video dipertahankan.
 - **QA sebelum commit:** halaman statis diuji dengan Chromium/Playwright pada lebar 320, 390, 640, 768, 832, 1024, 1440; tidak ada horizontal overflow, missing image, maupun page script errors; menu mobile, Escape, dan pemutaran video lolos. Simulasi zoom 200% tidak menghasilkan overflow. Reduced-motion ticker menjadi nonanimasi. Ini pengujian lokal, bukan klaim audit aksesibilitas penuh.
+
+## Pasha — Foto Album dan Ornamen Bunga (17 November 2026)
+
+Revisi berdasarkan aset autentik yang diserahkan klien:
+- Ilustrasi daisy memakai `assets/daisy.webp` dari file PNG Pasha, bukan SVG dekoratif.
+- Foto buket crochet diganti dengan `assets/crochet-bouquet.webp` sesuai foto baru dari klien.
+- Video `assets/field-notes.mp4` diputar otomatis tanpa suara dan berulang. Tombol play/pause serta observer yang menjeda video di luar viewport dihilangkan; kebijakan autoplay browser tetap dapat membatasi pemutaran.
+- Foto-foto personal tambahan (`album-sun/thumb/bars/flex/night/gorilla.webp`) diperlakukan sebagai fragmen album kecil dan ditaruh terbatas pada hero, intro, momen, dan journey. Tujuannya menghadirkan sisi personal Pasha tanpa mengalahkan isi CV.
+- Struktur dan copy site dipertahankan: Tactile Organic Atelier, ringan, hangat, dan santai. Seluruh tautan dan dokumentasi lain tetap utuh.
+
+QA lokal sebelumnya menguji 320, 390, 1440 CSS px tanpa overflow/asset missing; QA static pada revisi akhir memverifikasi semua path `assets/` dan attribut autoplay tanpa kontrol pause. Klaim autoplay tidak berarti browser bisa dijamin mengizinkan pemutaran pada setiap perangkat.
