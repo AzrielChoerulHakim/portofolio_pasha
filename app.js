@@ -77,6 +77,7 @@
     };
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('pageshow', schedule, { passive: true });
     schedule();
 
     if ('IntersectionObserver' in window && !reduced.matches) {
@@ -89,7 +90,18 @@
           }
         }
       }, { rootMargin: '0px 0px 50px 0px', threshold: .08 });
-      document.querySelectorAll('.album-card, .paper-scrap, .crochet-scene').forEach((item) => observer.observe(item));
+      // Editorial reveals are restrained: only meaningful content groups, not every line.
+      const revealTargets = document.querySelectorAll(
+        '.project-story, .intro-lead, .intro-article, .journey-heading > div, .skills-header, .contact-content, .moment-note > h2'
+      );
+      revealTargets.forEach((item) => {
+        // Keep immediately visible content fully readable during the first paint.
+        if (item.getBoundingClientRect().top > window.innerHeight * .9) {
+          item.classList.add('reveal-on-scroll');
+        }
+      });
+      document.querySelectorAll('.album-card, .paper-scrap, .crochet-scene, .reveal-on-scroll')
+        .forEach((item) => observer.observe(item));
     }
 
     document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', (event) => {
