@@ -72,3 +72,52 @@
 @media (max-width: 900px){.hero-memory-strip{margin-top:18px}.intro-mini-album{justify-content:flex-start}.journey-postcards{justify-content:flex-start}.journey-postcards .album-card{width:148px}}
 @media (max-width: 700px){.hero-memory-strip{gap:10px}.hero-memory-strip .album-card{width:88px;padding:8px 8px 21px}.hero-memory-strip .album-card-thumb{width:72px}.intro-mini-album,.moment-mini-album,.journey-postcards{gap:10px}.intro-mini-album .album-card{width:128px;padding:8px 8px 21px}.moment-mini-album{margin:18px 0 22px}.moment-mini-album .album-card-night{width:122px;padding:8px 8px 21px}.moment-mini-album .album-card-gorilla{width:92px;padding:8px 8px 21px;transform:rotate(5deg) translateY(14px)}.journey-postcards .album-card{width:124px;padding:8px 8px 21px;transform:rotate(-4deg)}.video-paper-frame{transform:rotate(-1deg)}}
 @media (max-width: 390px){.hero-memory-strip .album-card{width:80px}.hero-memory-strip .album-card-thumb{width:66px}.intro-mini-album{flex-wrap:wrap}.intro-mini-album .album-card{width:118px}.moment-mini-album .album-card-night{width:114px}.moment-mini-album .album-card-gorilla{width:86px}.journey-postcards .album-card{width:112px}}
+
+/* FINAL CRAFT PASS / Photograph, readability and calm scroll behavior.
+   Bouquet artwork is a square photographic print; preserve its full composition. */
+:root{--rust:#874833}
+.crochet-scene,.project-crochet .crochet-scene{height:auto;min-height:0;aspect-ratio:1/1;background:#d8d7aa;isolation:isolate}
+.crochet-scene figure{position:relative;width:100%;height:100%;aspect-ratio:1/1}
+.crochet-scene img,.project-crochet .crochet-scene img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;aspect-ratio:1/1}
+.crochet-scene figure::after{display:none}
+.crochet-doodle{display:none}
+/* Text-first color correction. Small labels require normal-text contrast. */
+.hero-masthead{color:#565b49}
+.hero-bottom-line,.project-meta,.ledger-when,.intro-aside span,.intro-aside small{color:#4e5848}
+.sheet-foot,.hero-subtitle,.moment-note p{color:#4e5848}
+.skills-header em{color:var(--rust)}
+.moment-note .side-tag,.work-section .side-tag,.skills-section .side-tag{color:var(--rust)}
+.hero-photo-wrap figcaption{color:#fff9ed;background:rgba(27,39,28,.9);padding:7px 13px 8px;border-radius:3px;text-shadow:none;transform:none;right:20px;bottom:23px;max-width:min(76%,280px);line-height:1.3}
+.hero-photo-wrap figcaption span{color:#f9d8b5}
+/* Scroll reading progress has a function: orientation in a long portfolio. */
+.site-header{isolation:isolate}
+.reading-progress{position:absolute;bottom:0;left:0;right:0;height:3px;overflow:hidden;pointer-events:none}
+.reading-progress__bar{display:block;height:100%;width:100%;background:var(--rust);transform:scaleX(0);transform-origin:left center;will-change:transform}
+.main-nav a[aria-current="location"]{color:var(--ink)}
+.main-nav a[aria-current="location"]::after{right:0;background:var(--rust);height:2px}
+/* Add a tactile settling gesture to actual photographic prints, not every block of text. */
+@media(prefers-reduced-motion:no-preference){
+ .scroll-enhanced .album-card,.scroll-enhanced .paper-scrap{translate:0 15px;opacity:.93;transition:translate .8s cubic-bezier(.16,1,.3,1),opacity .8s ease}
+ .scroll-enhanced .album-card.is-in-view,.scroll-enhanced .paper-scrap.is-in-view{translate:0 0;opacity:1}
+ .scroll-enhanced .crochet-scene img{transition:filter 1.2s ease}
+ .scroll-enhanced .crochet-scene:not(.is-in-view) img{filter:saturate(.85)}
+ .ledger-row{position:relative;transition:color .35s ease}
+ .ledger-row::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;background:transparent;transition:background .35s ease}
+ .ledger-row.is-reading::before{background:var(--rust)}
+ .ledger-row.is-reading h3{color:var(--rust)}
+}
+@media(max-width:900px){.crochet-scene,.project-crochet .crochet-scene{height:auto;aspect-ratio:1/1}}
+@media(max-width:700px){
+ .crochet-scene,.project-crochet .crochet-scene{height:auto;aspect-ratio:1/1}
+ .crochet-scene figure,.crochet-scene img{aspect-ratio:1/1}
+ .hero-photo-wrap figcaption{font-size:22px;right:15px;bottom:18px;max-width:75%}
+ .reading-progress{height:2px}
+}
+@media(max-width:390px){.crochet-scene,.project-crochet .crochet-scene{height:auto;aspect-ratio:1/1}}
+@media(prefers-reduced-motion:reduce){.reading-progress__bar{transition:none}.ledger-row::before{display:none}}
+@media(prefers-contrast:more){.side-tag,.eyebrow,.project-kicker{color:#713827}.hero-photo-wrap figcaption{background:#162218}}
+
+/* Last legibility correction: never place cream text over the light flower artwork. */
+.contact-flower{display:none}
+.hero-photo-wrap figcaption{left:12px;right:auto;bottom:14px;width:max-content;max-width:calc(100% - 24px);white-space:normal;overflow-wrap:normal;z-index:5;background:#203023;color:#fffaf0;box-shadow:0 2px 8px rgba(0,0,0,.23)}
+@media(max-width:700px){.hero-photo-wrap figcaption{left:11px;right:auto;max-width:calc(100% - 22px);bottom:13px;font-size:22px}}
